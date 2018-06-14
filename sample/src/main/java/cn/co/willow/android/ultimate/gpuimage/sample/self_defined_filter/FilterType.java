@@ -12,6 +12,8 @@ import cn.co.willow.android.ultimate.gpuimage.core_render_filter.recommend_effec
 import cn.co.willow.android.ultimate.gpuimage.core_render_filter.recommend_effect_filter_group.GPUImageSmoothCartoonFilter;
 import cn.co.willow.android.ultimate.gpuimage.core_render_filter.recommend_effect_filter_group.GPUImageSobelEdgeDetection;
 import cn.co.willow.android.ultimate.gpuimage.core_render_filter.recommend_effect_filter_group.GPUImageThresholdEdgeDetection;
+import cn.co.willow.android.ultimate.gpuimage.sample.SampleApplication;
+import cn.co.willow.android.ultimate.gpuimage.sample.filter.MagicBrooklynFilter;
 
 public class FilterType {
     private static GPUImageFilter lookupFilter1  = new GPUImageColorInvertFilter();         // single
@@ -27,6 +29,7 @@ public class FilterType {
     private static GPUImageFilter lookupFilter11 = new GPUImageSepiaFilter();               // single
     private static GPUImageFilter lookupFilter12 = new GPUImageFace01Filter();              // TwoInput bug     2input
     private static GPUImageFilter lookupFilter13 = new GPUImageFace02Filter();              // TwoInput bug     2input
+    private static GPUImageFilter lookupFilter14 = new MagicBrooklynFilter(SampleApplication.getApplication().getApplicationContext());              // TwoInput bug     2input
 
 
     public enum Type {
@@ -43,7 +46,8 @@ public class FilterType {
         f10(10, "Pixelation", "Pixelation", lookupFilter10),
         f11(11, "Sepia", "Sepia", lookupFilter11),
         f12(12, "lookup-postcard", "Face01", lookupFilter12),
-        f13(13, "lookup-classical", "Face02", lookupFilter13);
+        f13(13, "lookup-classical", "Face02", lookupFilter13),
+        f14(14, "brooklyn", "brooklyn", lookupFilter14);
 
         int            index;
         String         name;
